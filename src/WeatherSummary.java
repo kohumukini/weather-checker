@@ -23,18 +23,23 @@ public class WeatherSummary {
         Scanner console = new Scanner(System.in); 
         double highest = 0; 
         double lowest = Double.MAX_VALUE; 
+        double average = 0; 
+        int count = 0; 
 
         while (console.hasNextDouble()) {
             double temp = console.nextDouble(); 
-            if (temp > highest) {
-                highest = temp; 
-            } else if (temp < lowest) {
-                lowest = temp; 
-            }
+            if (temp > highest) highest = temp;
+            else if (temp < lowest) lowest = temp;
+            
+            average += temp;
+            count ++; 
         }
+
+        average /= count; 
 
         System.out.println("Lowest Temperature: " + Math.round(lowest * 100) / 100.0); 
         System.out.println("Highest Temperature: " + Math.round(highest * 100) / 100.0); 
+        System.out.println("Average temperature: " + Math.round(average * 100) / 100.0); 
         console.close(); 
     }
 }
