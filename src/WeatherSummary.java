@@ -21,13 +21,20 @@ public class WeatherSummary {
         // Implement this method!
         // Hint: use Scanner. nextDouble() and hasNextDouble() will be helpful here!
         Scanner console = new Scanner(System.in); 
-        
-        while (console.hasNextDouble()) {
-            double number = console.nextDouble(); 
+        double highest = 0; 
+        double lowest = Double.MAX_VALUE; 
 
-            System.out.println(number); 
+        while (console.hasNextDouble()) {
+            double temp = console.nextDouble(); 
+            if (temp > highest) {
+                highest = temp; 
+            } else if (temp < lowest) {
+                lowest = temp; 
+            }
         }
 
+        System.out.println("Lowest Temperature: " + Math.round(lowest * 100) / 100.0); 
+        System.out.println("Highest Temperature: " + Math.round(highest * 100) / 100.0); 
         console.close(); 
     }
 }
